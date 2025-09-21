@@ -1,0 +1,44 @@
+/* src/components/Reviews.css */
+.reviews-section {
+  padding: 80px 24px;
+  background-color: #f7f7f7;
+  text-align: center;
+  color: var(--header-color);
+}
+
+.reviews-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.review-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.review-rating {
+  color: #ffc107;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.review-text {
+  font-style: italic;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.review-author {
+  font-weight: bold;
+  color: var(--secondary-color);
+}

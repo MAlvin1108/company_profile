@@ -1,0 +1,60 @@
+/* src/components/Lokasi.css */
+.lokasi-section {
+  padding: 80px 24px;
+  background-color: var(--primary-color);
+  color: var(--header-color);
+  text-align: center;
+}
+
+.lokasi-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.lokasi-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.container-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Jarak antara gambar dan peta */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container-map img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.map-container {
+  height: 500px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Mengatur tata letak untuk desktop */
+@media (min-width: 768px) {
+  .container-map {
+    flex-direction: row; /* Berubah menjadi horizontal */
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .container-map img {
+    flex: 1;
+  }
+
+  .map-container {
+    flex: 1;
+  }
+}

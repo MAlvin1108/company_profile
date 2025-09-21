@@ -1,0 +1,70 @@
+/* src/components/Header.css */
+header {
+  background-color: var(--header-color);
+  color: white;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container-header img {
+  width: 150px;
+  height: auto;
+}
+
+.container-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+}
+
+.container-header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.container-header nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+.container-header nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease-in-out;
+}
+
+.container-header nav ul li a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .container-header nav ul {
+    margin-top: 15px;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
