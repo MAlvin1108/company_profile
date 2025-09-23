@@ -1,21 +1,4 @@
 /* src/components/KeunggulanProduk.css */
-.section-3D {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 5px;
-}
-
-.adora-3D {
-  grid-column-start: 1;
-  grid-row-start: 2;
-}
-
-.tyrano-3D {
-  grid-column-start: 2;
-  grid-row-start: 1;
-}
-
 .keunggulan-produk {
   padding: 80px 24px;
   background-color: #f7f7f7;
@@ -24,60 +7,171 @@
 }
 
 .keunggulan-produk h2 {
+  font-family: "Montserrat", sans-serif;
   font-size: 2.5rem;
   margin-bottom: 50px;
 }
 
-.keunggulan-grid {
+.keunggulan-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.keunggulan-card {
-  background-color: white;
-  border: 1px solid #e0e0e0;
+.banner-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-banner {
+  width: 100%;
   border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
+  object-fit: cover;
 }
 
-.keunggulan-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.product-banner:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-.keunggulan-card h3 {
-  color: var(--secondary-color);
-  margin-bottom: 15px;
-  font-size: 1.5rem;
+.keunggulan-image-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.keunggulan-card p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.5;
+.keunggulan-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
 }
 
+/* --- */
+
+/* Animasi saat section terlihat */
+.keunggulan-produk h2,
+.keunggulan-container .banner-column,
+.keunggulan-container .keunggulan-image-column {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Mengatur animasi untuk judul (muncul dari bawah) */
 .keunggulan-produk h2 {
-  opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.keunggulan-produk h2.is-visible {
+.keunggulan-produk.is-visible h2 {
   opacity: 1;
   transform: translateY(0);
+  transition-delay: 0.1s;
 }
 
-.keunggulan-card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Mengatur animasi untuk kolom banner (muncul dari kiri) */
+.keunggulan-container .banner-column {
+  transform: translateX(-50px);
 }
 
-.keunggulan-card.is-visible {
+.keunggulan-produk.is-visible .banner-column {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+/* Mengatur animasi untuk kolom gambar keunggulan (muncul dari kanan) */
+.keunggulan-container .keunggulan-image-column {
+  transform: translateX(50px);
+}
+
+.keunggulan-produk.is-visible .keunggulan-image-column {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.5s;
+}
+
+/* --- */
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  color: var(--header-color);
+}
+
+.close-button i:hover {
+  color: var(--secondary-color);
+}
+
+.interactive-360-viewer {
+  width: 100%;
+  height: auto;
+  cursor: grab;
+}
+
+.viewer-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 768px) {
+  .keunggulan-container {
+    grid-template-columns: 1fr;
+  }
+
+  .banner-column {
+    flex-direction: row;
+  }
+
+  .keunggulan-produk.is-visible .banner-column,
+  .keunggulan-produk.is-visible .keunggulan-image-column {
+    transform: translateX(0);
+  }
+
+  .keunggulan-container .banner-column,
+  .keunggulan-container .keunggulan-image-column {
+    transform: translateY(50px);
+  }
+
+  .keunggulan-produk.is-visible .keunggulan-image-column {
+    transition-delay: 0.5s;
+  }
 }
