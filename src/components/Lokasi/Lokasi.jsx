@@ -10,17 +10,18 @@ const Lokasi = () => {
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
 
   return (
-    <section id="contact-us" className="lokasi-section">
+    <section
+      ref={ref}
+      id="contact-us"
+      className={`lokasi-section ${isVisible ? "is-visible" : ""}`}
+    >
       <div className="container-content">
-        <h2 className={isVisible ? "is-visible" : ""}>Temukan Kami</h2>
-        <p className={isVisible ? "is-visible" : ""}>
+        <h2>Temukan Kami</h2>
+        <p>
           Jl. Undaan Wetan No. 88, Kelurahan Kapasari, Kecamatan Genteng, Kota
           Surabaya
         </p>
-        <div
-          ref={ref}
-          className={`container-map ${isVisible ? "is-visible" : ""}`}
-        >
+        <div className="container-map">
           <MapContainer center={position} zoom={13} className="map-container">
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -32,7 +33,7 @@ const Lokasi = () => {
               </Popup>
             </Marker>
           </MapContainer>
-          <img src="./img/gedung.jpeg" alt="" />
+          <img src="/img/gedung.jpeg" alt="" />
         </div>
       </div>
     </section>

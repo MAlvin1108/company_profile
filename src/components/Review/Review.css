@@ -79,8 +79,15 @@
   color: var(--secondary-color);
 }
 
+/* Penyesuaian untuk opacity awal */
+.reviews-section h2,
+.reviews-grid,
+.reviews-section.is-visible .reviews-grid .review-card {
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
 /* Penyesuaian untuk animasi saat section terlihat */
-/* Aturan ini yang memastikan elemen akan muncul */
 .reviews-section.is-visible h2 {
   opacity: 1;
   transform: translateY(0);
@@ -93,10 +100,30 @@
   transition-delay: 0.3s;
 }
 
-/* Penyesuaian untuk opacity awal */
-.reviews-section h2,
-.reviews-grid,
-.review-card {
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* Mengatur animasi untuk setiap kartu review secara individual */
+.reviews-section.is-visible .reviews-grid .review-card:nth-child(1) {
+  transition-delay: 0.5s;
+}
+
+.reviews-section.is-visible .reviews-grid .review-card:nth-child(2) {
+  transition-delay: 0.7s;
+}
+
+.reviews-section.is-visible .reviews-grid .review-card:nth-child(3) {
+  transition-delay: 0.9s;
+}
+
+/* Penyesuaian untuk tampilan mobile */
+@media (max-width: 768px) {
+  .reviews-section h2 {
+    font-size: 2rem;
+  }
+
+  .customer-image {
+    height: 150px;
+  }
+
+  .review-card {
+    padding: 20px;
+  }
 }

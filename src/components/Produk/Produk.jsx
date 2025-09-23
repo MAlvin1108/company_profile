@@ -37,7 +37,7 @@ const produkData = [
     description:
       "Model Adora Livery adalah Desainn lain dari Adora basic dengan tambahan stiker yang menambah aksen elegan pada desain ini",
     colors: [
-      "/Adora/Adora_grey.png", // Warna default
+      "/Adora/Adora_grey.png",
       "/Adora/angelic_white.png",
       "/Adora/galaxy_black.png",
       "/Adora/ocean_blue.png",
@@ -46,40 +46,40 @@ const produkData = [
   },
   {
     name: [
-      "Model Tyrano",
-      "Model Tyrano Beige",
-      "Model Tyrano Grey",
-      "Model Tyrano Orange",
-      "Model Tyrano White",
-      "Model Tyrano Grey 2",
+      "Tyrano Borneo Green",
+      "Tyrano Sanur Beige",
+      "Tyrano Semeru Grey",
+      "Tyrano Krakatau Blaze",
+      "Tyrano Carstensz White",
+      "Model Rinjani Grey",
     ],
     price: "Rp 45.000.000",
     description:
       "Terinspirasi dari kekuatan T-Rex dan daya jelajah medan ekstrem, Tyranno adalah motor listrik dari Indomobil eMotor yang dirancang untuk menghadapi segala tantangan jalanan.",
     colors: [
-      "/tyrano/green_tyrano.png", // Warna default
+      "/tyrano/green_tyrano.png",
       "/tyrano/beige.png",
       "/tyrano/grey.png",
       "/tyrano/orange.png",
       "/tyrano/white.png",
-      "/tyrano/grey2.png", // Perbaikan path
+      "/tyrano/grey2.png",
     ],
   },
 ];
 
 const Produk = () => {
-  const [currentColors, setCurrentColors] = useState(produkData.map(() => 0));
+  const [currentSlide, setCurrentSlide] = useState(produkData.map(() => 0));
   const [currentNames, setCurrentNames] = useState(produkData.map(() => 0));
 
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
 
-  const handleNextColor = (produkIndex) => {
-    setCurrentColors((prevColors) => {
-      const newColors = [...prevColors];
+  const handleNextSlide = (produkIndex) => {
+    setCurrentSlide((prevSlides) => {
+      const newSlides = [...prevSlides];
       const produk = produkData[produkIndex];
-      newColors[produkIndex] =
-        (prevColors[produkIndex] + 1) % produk.colors.length;
-      return newColors;
+      newSlides[produkIndex] =
+        (prevSlides[produkIndex] + 1) % produk.colors.length;
+      return newSlides;
     });
     setCurrentNames((prevNames) => {
       const newNames = [...prevNames];
@@ -89,14 +89,14 @@ const Produk = () => {
     });
   };
 
-  const handlePrevColor = (produkIndex) => {
-    setCurrentColors((prevColors) => {
-      const newColors = [...prevColors];
+  const handlePrevSlide = (produkIndex) => {
+    setCurrentSlide((prevSlides) => {
+      const newSlides = [...prevSlides];
       const produk = produkData[produkIndex];
-      newColors[produkIndex] =
-        (prevColors[produkIndex] - 1 + produk.colors.length) %
+      newSlides[produkIndex] =
+        (prevSlides[produkIndex] - 1 + produk.colors.length) %
         produk.colors.length;
-      return newColors;
+      return newSlides;
     });
     setCurrentNames((prevNames) => {
       const newNames = [...prevNames];
@@ -120,20 +120,30 @@ const Produk = () => {
               className={`produk-card ${isVisible ? "is-visible" : ""}`}
             >
               <div className="produk-image-container">
-                <img
-                  src={produk.colors[currentColors[index]]}
-                  alt={produk.name[currentNames[index]]}
-                  className="produk-image"
-                />
+                <div
+                  className="produk-image-slider"
+                  style={{
+                    transform: `translateX(-${currentSlide[index] * 100}%)`,
+                  }}
+                >
+                  {produk.colors.map((colorImage, colorIndex) => (
+                    <img
+                      key={colorIndex}
+                      src={colorImage}
+                      alt={produk.name[colorIndex]}
+                      className="produk-image-slide"
+                    />
+                  ))}
+                </div>
                 <button
                   className="color-change-button left"
-                  onClick={() => handlePrevColor(index)}
+                  onClick={() => handlePrevSlide(index)}
                 >
                   <i data-feather="chevron-left" className="feather-icon"></i>
                 </button>
                 <button
                   className="color-change-button right"
-                  onClick={() => handleNextColor(index)}
+                  onClick={() => handleNextSlide(index)}
                 >
                   <i data-feather="chevron-right" className="feather-icon"></i>
                 </button>

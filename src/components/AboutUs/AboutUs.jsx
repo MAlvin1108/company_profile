@@ -17,12 +17,13 @@ const AboutUs = () => {
         <div className="about-us-content">
           <h2 className={isVisible ? "is-visible" : ""}>About Us</h2>
           <p className={isVisible ? "is-visible" : ""}>
-            Indomobil adalah pelopor distribusi sepeda motor listrik di
-            Indonesia. Misi kami adalah menghadirkan solusi transportasi ramah
-            lingkungan yang tidak hanya efisien dan bertenaga, tetapi juga
-            terjangkau untuk setiap lapisan masyarakat. Kami berkomitmen penuh
-            untuk mendorong perubahan menuju masa depan yang lebih hijau, satu
-            motor listrik pada satu waktu.
+            Website ini adalah website resmi indomobil pada cabang undaan
+            Surabaya yang merupakan pelopor distribusi sepeda motor listrik
+            khusus untuk daerah surabaya dan sekitarnya. Misi kami adalah
+            menghadirkan solusi transportasi ramah lingkungan yang tidak hanya
+            efisien dan bertenaga, tetapi juga terjangkau untuk setiap lapisan
+            masyarakat. Kami berkomitmen penuh untuk mendorong perubahan menuju
+            masa depan yang lebih hijau, satu motor listrik pada satu waktu.
           </p>
           <p className={isVisible ? "is-visible" : ""}>
             Dengan pengalaman lebih dari satu dekade di industri, kami bangga

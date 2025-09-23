@@ -38,11 +38,12 @@ const Review = () => {
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
 
   return (
-    <section id="reviews" className="reviews-section">
-      <div
-        ref={ref}
-        className={`container-content ${isVisible ? "is-visible" : ""}`}
-      >
+    <section
+      ref={ref}
+      id="reviews"
+      className={`reviews-section ${isVisible ? "is-visible" : ""}`}
+    >
+      <div className="container-content">
         <h2 className={isVisible ? "is-visible" : ""}>Apa Kata Mereka?</h2>
 
         {/* Kontainer Slider Gambar Customer */}

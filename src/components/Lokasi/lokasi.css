@@ -42,21 +42,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.lokasi-section h2,
-.lokasi-section p,
-.container-map {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.lokasi-section h2.is-visible,
-.lokasi-section p.is-visible,
-.container-map.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Mengatur tata letak untuk desktop */
 @media (min-width: 768px) {
   .container-map {
@@ -69,4 +54,31 @@
   .map-container {
     flex: 1; /* Biarkan keduanya mengambil ruang yang sama */
   }
+}
+
+/* Animasi saat section terlihat */
+.lokasi-section h2,
+.lokasi-section p,
+.container-map {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.lokasi-section.is-visible h2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.lokasi-section.is-visible p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.lokasi-section.is-visible .container-map {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
 }

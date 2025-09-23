@@ -40,6 +40,15 @@ const KeunggulanProduk = () => {
           ref={gridRef}
           className={`keunggulan-grid ${isGridVisible ? "is-visible" : ""}`}
         >
+          <div className="section-3D">
+            <div className="adora-3D">
+              <ol className="picture-360"></ol>
+            </div>
+            <div className="tyrano-3D">
+              <ol className="picture-360"></ol>
+            </div>
+            <div className="keunggulan-grid"></div>
+          </div>
           {keunggulan.map((item, index) => (
             <div
               key={index}
