@@ -5,10 +5,17 @@ import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const produkData = [
   {
-    name: "Model Adora Basic",
-    price: "Rp. 34.000.000",
+    name: [
+      "Adora Angelic White",
+      "Adora Blue",
+      "Adora Galaxy Black",
+      "Adora Gunmetal",
+      "Adora Mint Green",
+      "Adora Sakura Blossom",
+    ],
+    price: "Rp. 24.750.000",
     description:
-      "Model Adora Basic adalah pilihan sempurna untuk penggunaan sehari-hari di perkotaan. Desainnya ramping dan ringan, memudahkan manuver di jalanan padat. Baterai tahan lama dan pengisian cepat menjamin mobilitas tanpa batas.",
+      "Motor listrik inovatif yang menggabungkan performa tinggi, kenyamanan maksimal, dan konektivitas canggih, menawarkan pengalaman berkendara ramah lingkungan dengan jarak tempuh hingga 110 km. Dilengkapi garansi baterai 3 tahun dan dukungan jaringan Indomobil, Adora siap menemani perjalanan Anda dengan aman dan berkelanjutan.",
     colors: [
       "/Adora_basic/adora_angelicwhite.png",
       "/Adora_basic/adora_blue.png",
@@ -19,8 +26,14 @@ const produkData = [
     ],
   },
   {
-    name: "Model Adora Livery",
-    price: "Rp 35.000.000",
+    name: [
+      "Adora Gunmetal livery",
+      "Adora Angelic White Livery",
+      "Adora Galaxy Black Livery",
+      "Adora Ocean Blue Livery",
+      "Adora Sakura Blossom Livery",
+    ],
+    price: "Rp 24.950.000",
     description:
       "Model Adora Livery adalah Desainn lain dari Adora basic dengan tambahan stiker yang menambah aksen elegan pada desain ini",
     colors: [
@@ -32,23 +45,31 @@ const produkData = [
     ],
   },
   {
-    name: "Model Tyrano",
+    name: [
+      "Model Tyrano",
+      "Model Tyrano Beige",
+      "Model Tyrano Grey",
+      "Model Tyrano Orange",
+      "Model Tyrano White",
+      "Model Tyrano Grey 2",
+    ],
     price: "Rp 45.000.000",
     description:
-      "Model Tyrano adalah motor listrik bertenaga tinggi untuk mereka yang mencari performa maksimal. Dengan akselerasi luar biasa dan jarak tempuh lebih jauh, motor ini siap menemani petualangan di luar kota.",
+      "Terinspirasi dari kekuatan T-Rex dan daya jelajah medan ekstrem, Tyranno adalah motor listrik dari Indomobil eMotor yang dirancang untuk menghadapi segala tantangan jalanan.",
     colors: [
       "/tyrano/green_tyrano.png", // Warna default
       "/tyrano/beige.png",
       "/tyrano/grey.png",
       "/tyrano/orange.png",
       "/tyrano/white.png",
-      "tyrano/grey2.png",
+      "/tyrano/grey2.png", // Perbaikan path
     ],
   },
 ];
 
 const Produk = () => {
   const [currentColors, setCurrentColors] = useState(produkData.map(() => 0));
+  const [currentNames, setCurrentNames] = useState(produkData.map(() => 0));
 
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
 
@@ -60,6 +81,12 @@ const Produk = () => {
         (prevColors[produkIndex] + 1) % produk.colors.length;
       return newColors;
     });
+    setCurrentNames((prevNames) => {
+      const newNames = [...prevNames];
+      const produk = produkData[produkIndex];
+      newNames[produkIndex] = (prevNames[produkIndex] + 1) % produk.name.length;
+      return newNames;
+    });
   };
 
   const handlePrevColor = (produkIndex) => {
@@ -70,6 +97,13 @@ const Produk = () => {
         (prevColors[produkIndex] - 1 + produk.colors.length) %
         produk.colors.length;
       return newColors;
+    });
+    setCurrentNames((prevNames) => {
+      const newNames = [...prevNames];
+      const produk = produkData[produkIndex];
+      newNames[produkIndex] =
+        (prevNames[produkIndex] - 1 + produk.name.length) % produk.name.length;
+      return newNames;
     });
   };
 
@@ -88,7 +122,7 @@ const Produk = () => {
               <div className="produk-image-container">
                 <img
                   src={produk.colors[currentColors[index]]}
-                  alt={produk.name}
+                  alt={produk.name[currentNames[index]]}
                   className="produk-image"
                 />
                 <button
@@ -105,7 +139,7 @@ const Produk = () => {
                 </button>
               </div>
               <div className="produk-info">
-                <h3>{produk.name}</h3>
+                <h3>{produk.name[currentNames[index]]}</h3>
                 <p className="produk-price">{produk.price}</p>
                 <p className="produk-description">{produk.description}</p>
                 <a

@@ -13,7 +13,7 @@
 
 .produk-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
   justify-content: center;
 }
@@ -108,7 +108,7 @@
   align-items: center;
   gap: 10px;
   padding: 12px 24px;
-  background-color: #25d366;
+  background-color: #406351;
   color: white;
   text-decoration: none;
   border-radius: 50px;
