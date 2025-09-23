@@ -1,4 +1,4 @@
-/* src/components/Lokasi.css */
+/* src/components/Lokasi/lokasi.css */
 .lokasi-section {
   padding: 80px 24px;
   background-color: var(--primary-color);
@@ -18,16 +18,16 @@
 
 .container-map {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Tumpuk gambar dan peta di mobile */
   align-items: center;
-  gap: 30px; /* Jarak antara gambar dan peta */
+  gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .container-map img {
   width: 100%;
-  max-width: 600px;
+  max-width: 600px; /* Batasi lebar maksimum gambar */
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -37,24 +37,36 @@
 .map-container {
   height: 500px;
   width: 100%;
-  max-width: 600px;
+  max-width: 600px; /* Batasi lebar maksimum peta */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lokasi-section h2,
+.lokasi-section p,
+.container-map {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.lokasi-section h2.is-visible,
+.lokasi-section p.is-visible,
+.container-map.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Mengatur tata letak untuk desktop */
 @media (min-width: 768px) {
   .container-map {
-    flex-direction: row; /* Berubah menjadi horizontal */
+    flex-direction: row; /* Tampilkan gambar dan peta berdampingan */
     justify-content: center;
     align-items: flex-start;
   }
 
-  .container-map img {
-    flex: 1;
-  }
-
+  .container-map img,
   .map-container {
-    flex: 1;
+    flex: 1; /* Biarkan keduanya mengambil ruang yang sama */
   }
 }

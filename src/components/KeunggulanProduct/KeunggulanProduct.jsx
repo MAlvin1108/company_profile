@@ -1,6 +1,7 @@
 // src/components/KeunggulanProduk.jsx
 import React from "react";
 import "./KeunggulanProduct.css";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const KeunggulanProduk = () => {
   const keunggulan = [
@@ -26,13 +27,24 @@ const KeunggulanProduk = () => {
     },
   ];
 
+  const [h2Ref, isH2Visible] = useIntersectionObserver({ threshold: 0.5 });
+  const [gridRef, isGridVisible] = useIntersectionObserver({ threshold: 0.2 });
+
   return (
     <section id="keunggulan" className="keunggulan-produk">
       <div className="container-content">
-        <h2>Mengapa Pilih Motor Listrik Kami?</h2>
-        <div className="keunggulan-grid">
+        <h2 ref={h2Ref} className={isH2Visible ? "is-visible" : ""}>
+          Mengapa Pilih Motor Listrik Kami?
+        </h2>
+        <div
+          ref={gridRef}
+          className={`keunggulan-grid ${isGridVisible ? "is-visible" : ""}`}
+        >
           {keunggulan.map((item, index) => (
-            <div key={index} className="keunggulan-card">
+            <div
+              key={index}
+              className={`keunggulan-card ${isGridVisible ? "is-visible" : ""}`}
+            >
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </div>

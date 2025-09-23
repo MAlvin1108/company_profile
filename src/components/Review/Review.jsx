@@ -1,6 +1,7 @@
-// src/components/Reviews.jsx
+// src/components/Review/Review.jsx
 import React from "react";
 import "./Review.css";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const dummyReviews = [
   {
@@ -23,12 +24,51 @@ const dummyReviews = [
   },
 ];
 
-const Reviews = () => {
+const customerImages = [
+  "/customer/cust1.jpeg",
+  "/customer/cust2.jpeg",
+  "/customer/cust3.jpeg",
+  "/customer/cust4.jpeg",
+  "/customer/cust5.jpeg",
+  "/customer/cust6.jpeg",
+  // Tambahkan path gambar lain jika ada
+];
+
+const Review = () => {
+  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
+
   return (
     <section id="reviews" className="reviews-section">
-      <div className="container-content">
-        <h2>Apa Kata Mereka?</h2>
-        <div className="reviews-grid">
+      <div
+        ref={ref}
+        className={`container-content ${isVisible ? "is-visible" : ""}`}
+      >
+        <h2 className={isVisible ? "is-visible" : ""}>Apa Kata Mereka?</h2>
+
+        {/* Kontainer Slider Gambar Customer */}
+        <div className="customer-slider-container">
+          <div className="customer-slider">
+            {customerImages.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`Customer ${index + 1}`}
+                className="customer-image"
+              />
+            ))}
+            {/* Menggandakan gambar untuk efek looping mulus */}
+            {customerImages.map((image, index) => (
+              <img
+                key={index + customerImages.length}
+                src={image}
+                alt={`Customer ${index + 1}`}
+                className="customer-image"
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className={`reviews-grid ${isVisible ? "is-visible" : ""}`}>
           {dummyReviews.map((review, index) => (
             <div key={index} className="review-card">
               <div className="review-rating">
@@ -45,4 +85,4 @@ const Reviews = () => {
   );
 };
 
-export default Reviews;
+export default Review;

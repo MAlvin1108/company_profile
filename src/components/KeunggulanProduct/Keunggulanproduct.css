@@ -42,3 +42,25 @@
   color: #555;
   line-height: 1.5;
 }
+
+.keunggulan-produk h2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.keunggulan-produk h2.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.keunggulan-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.keunggulan-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

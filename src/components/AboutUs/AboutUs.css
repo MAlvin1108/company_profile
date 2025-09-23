@@ -1,4 +1,4 @@
-/* src/components/AboutUs.css */
+/* src/components/AboutUs/AboutUs.css */
 .about-us {
   padding: 80px 24px;
   background-color: var(--primary-color);
@@ -16,16 +16,67 @@
   content: "";
   position: absolute;
   bottom: -10px;
-  left: 50%;
+  left: 15%;
   transform: translateX(-50%);
   width: 80px;
   height: 3px;
   background-color: var(--secondary-color);
 }
 
-.about-us p {
+.about-us-container {
+  display: flex;
+  flex-direction: column-reverse; /* Teks di atas gambar di mobile */
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-us-content {
+  text-align: left;
+}
+
+.about-us-content p {
   max-width: 800px;
   margin: 20px auto;
   font-size: 1.1rem;
   line-height: 1.6;
+}
+
+.about-us-image img {
+  width: 100%;
+  max-width: 400px; /* Atur lebar maksimum gambar */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
+}
+
+.about-us-container > *,
+.about-us h2,
+.about-us p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition-delay: 0.2s; /* Penundaan agar animasi terlihat lebih baik */
+}
+
+.about-us-container.is-visible > *,
+.about-us h2.is-visible,
+.about-us p.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mengatur tata letak untuk desktop */
+@media (min-width: 768px) {
+  .about-us-container {
+    flex-direction: row; /* Gambar dan teks berdampingan di desktop */
+    text-align: left;
+  }
+
+  .about-us-content,
+  .about-us-image {
+    flex: 1; /* Distribusi ruang yang sama */
+  }
 }

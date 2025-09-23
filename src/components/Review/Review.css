@@ -1,4 +1,4 @@
-/* src/components/Reviews.css */
+/* src/components/Review/Review.css */
 .reviews-section {
   padding: 80px 24px;
   background-color: #f7f7f7;
@@ -8,9 +8,45 @@
 
 .reviews-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
+/* Styling untuk Slider Gambar Customer */
+.customer-slider-container {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.customer-slider {
+  display: flex;
+  animation: slide-left-to-right 20s linear infinite;
+  white-space: nowrap;
+}
+
+.customer-image {
+  width: auto;
+  height: 200px;
+  object-fit: cover;
+  margin: 0 5px;
+  border-radius: 8px;
+}
+
+/* Keyframes untuk animasi pergerakan slider */
+@keyframes slide-left-to-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Geser ke kiri hingga 50% */
+  }
+}
+
+/* Styling untuk Grid Review */
 .reviews-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -41,4 +77,26 @@
 .review-author {
   font-weight: bold;
   color: var(--secondary-color);
+}
+
+/* Penyesuaian untuk animasi saat section terlihat */
+/* Aturan ini yang memastikan elemen akan muncul */
+.reviews-section.is-visible h2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.reviews-section.is-visible .reviews-grid {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+/* Penyesuaian untuk opacity awal */
+.reviews-section h2,
+.reviews-grid,
+.review-card {
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
