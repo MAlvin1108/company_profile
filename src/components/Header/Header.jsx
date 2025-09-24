@@ -22,7 +22,7 @@ const Header = () => {
               <a href="#reviews">Review</a>
             </li>
             <li>
-              <a href="#contact-us">Kontak</a>
+              <a href="#Lokasi">Lokasi</a>
             </li>
           </ul>
         </nav>

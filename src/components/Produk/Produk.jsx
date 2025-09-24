@@ -13,7 +13,7 @@ const produkData = [
       "Adora Mint Green",
       "Adora Sakura Blossom",
     ],
-    price: "Rp. 24.750.000",
+    price: "Rp. 26.350.000",
     description:
       "Motor listrik inovatif yang menggabungkan performa tinggi, kenyamanan maksimal, dan konektivitas canggih, menawarkan pengalaman berkendara ramah lingkungan dengan jarak tempuh hingga 110 km. Dilengkapi garansi baterai 3 tahun dan dukungan jaringan Indomobil, Adora siap menemani perjalanan Anda dengan aman dan berkelanjutan.",
     colors: [
@@ -33,9 +33,9 @@ const produkData = [
       "Adora Ocean Blue Livery",
       "Adora Sakura Blossom Livery",
     ],
-    price: "Rp 24.950.000",
+    price: "Rp 26.550.000",
     description:
-      "Model Adora Livery adalah Desainn lain dari Adora basic dengan tambahan stiker yang menambah aksen elegan pada desain ini",
+      "Model Adora Livery adalah Desain lain dari Adora basic dengan tambahan stiker yang menambah aksen elegan pada desain ini",
     colors: [
       "/Adora/Adora_grey.png",
       "/Adora/angelic_white.png",
@@ -53,7 +53,7 @@ const produkData = [
       "Tyrano Carstensz White",
       "Model Rinjani Grey",
     ],
-    price: "Rp 45.000.000",
+    price: "Rp 27.500.000",
     description:
       "Terinspirasi dari kekuatan T-Rex dan daya jelajah medan ekstrem, Tyranno adalah motor listrik dari Indomobil eMotor yang dirancang untuk menghadapi segala tantangan jalanan.",
     colors: [

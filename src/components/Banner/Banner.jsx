@@ -7,18 +7,14 @@ const Banner = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Menghitung opasitas berdasarkan posisi gulir
-      // Teks mulai fade-out saat menggulir 50% dari tinggi viewport
       const maxScroll = window.innerHeight * 0.5;
       const newOpacity = 1 - window.scrollY / maxScroll;
 
-      // Memastikan opasitas tidak kurang dari 0
       setOpacity(Math.max(0, newOpacity));
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    // Membersihkan event listener saat komponen dilepas
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

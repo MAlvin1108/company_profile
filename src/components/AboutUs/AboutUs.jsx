@@ -5,7 +5,7 @@ import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const AboutUs = () => {
   const [ref, isVisible] = useIntersectionObserver({
-    threshold: 0.2, // Mulai animasi saat 20% elemen terlihat
+    threshold: 0.2,
   });
 
   return (
@@ -30,7 +30,7 @@ const AboutUs = () => {
             menjadi mitra terpercaya dalam perjalananmu menuju mobilitas masa
             depan. Bergabunglah bersama kami, dan rasakan pengalaman berkendara
             yang tak tertandingi dengan motor listrik berkualitas dari
-            Indolocal.
+            Indomobil.
           </p>
         </div>
         <div className="about-us-image">

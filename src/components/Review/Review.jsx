@@ -7,19 +7,19 @@ const dummyReviews = [
   {
     name: "Rio S.",
     review:
-      "Motor listrik dari Indolocal sangat nyaman dan tangguh untuk harian. Jarak tempuhnya juga sangat memuaskan, tidak khawatir kehabisan daya. Desainnya modern dan stylish, bikin bangga saat dipakai!",
+      "Motor listrik dari Indomobil sangat nyaman dan tangguh untuk harian. Jarak tempuhnya juga sangat memuaskan, tidak khawatir kehabisan daya. Desainnya modern dan stylish, bikin bangga saat dipakai!",
     rating: 5,
   },
   {
     name: "Anita L.",
     review:
-      "Pelayanan Indolocal sangat profesional. Motornya sangat mudah dikendarai dan perawatannya jauh lebih simple. Sangat cocok untuk saya yang sering bepergian di dalam kota. Rekomendasi!",
+      "Pelayanan Indomobil sangat profesional. Motornya sangat mudah dikendarai dan perawatannya jauh lebih simple. Sangat cocok untuk saya yang sering bepergian di dalam kota. Rekomendasi!",
     rating: 4,
   },
   {
     name: "Budi T.",
     review:
-      "Saya awalnya ragu, tapi setelah mencoba Model Beta, semua keraguan hilang. Performanya luar biasa, responsif, dan stabil. Motor listrik ini adalah investasi terbaik untuk mobilitas masa depan.",
+      "Saya awalnya ragu, tapi setelah mencoba Model Tyrano, semua keraguan hilang. Performanya luar biasa, responsif, dan stabil. Motor listrik ini adalah investasi terbaik untuk mobilitas masa depan.",
     rating: 5,
   },
 ];
@@ -57,7 +57,6 @@ const Review = () => {
                 className="customer-image"
               />
             ))}
-            {/* Menggandakan gambar untuk efek looping mulus */}
             {customerImages.map((image, index) => (
               <img
                 key={index + customerImages.length}

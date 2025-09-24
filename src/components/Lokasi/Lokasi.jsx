@@ -12,7 +12,7 @@ const Lokasi = () => {
   return (
     <section
       ref={ref}
-      id="contact-us"
+      id="Lokasi"
       className={`lokasi-section ${isVisible ? "is-visible" : ""}`}
     >
       <div className="container-content">

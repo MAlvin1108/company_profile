@@ -47,12 +47,6 @@ const KeunggulanProduk = () => {
     }
   };
 
-  useEffect(() => {
-    if (modalVisible && window.feather) {
-      window.feather.replace();
-    }
-  }, [modalVisible]);
-
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
 
   return (
