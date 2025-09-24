@@ -47,6 +47,12 @@ const KeunggulanProduk = () => {
     }
   };
 
+  useEffect(() => {
+    if (modalVisible && window.feather) {
+      window.feather.replace();
+    }
+  }, [modalVisible]);
+
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
 
   return (
@@ -56,9 +62,7 @@ const KeunggulanProduk = () => {
       className={`keunggulan-produk ${isVisible ? "is-visible" : ""}`}
     >
       <div className="container-content">
-        <h2 className={isVisible ? "is-visible" : ""}>
-          Mengapa Pilih Motor Listrik Kami?
-        </h2>
+        <h2>Mengapa Pilih Motor Listrik Kami?</h2>
         <div className="keunggulan-container">
           <div className="banner-column">
             <img

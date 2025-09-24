@@ -6,6 +6,11 @@ header {
   position: sticky;
   top: 0;
   z-index: 999;
+
+  /* Animasi Fade-in dari atas */
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: headerFadeIn 1s forwards ease-out;
 }
 
 .container-header {
@@ -55,6 +60,14 @@ header {
 
 .container-header nav ul li a:hover::after {
   width: 100%;
+}
+
+/* Keyframes untuk animasi header */
+@keyframes headerFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {

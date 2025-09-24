@@ -6,10 +6,10 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>&copy; 2025 Alvin. All rights reserved.</p>
+        <p>&copy; 2025 indomobil. All rights reserved.</p>
         <div className="social-media">
-          <a href="#">
-            <i data-feather="facebook"></i>
+          <a href="https://maps.google.com/maps?cid=17681333632283423419">
+            <i data-feather="map-pin"></i>
           </a>
           <a href="#">
             <i data-feather="instagram"></i>

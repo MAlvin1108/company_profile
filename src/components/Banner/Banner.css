@@ -1,4 +1,4 @@
-/* src/components/Banner/Banner.css */
+/* src/components/Banner.css */
 .banner-section {
   position: relative;
   height: 80vh;
@@ -29,16 +29,33 @@
   z-index: 1;
   padding: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transition: opacity 0.3s ease-out; /* Animasi fade yang halus */
+  transition: opacity 0.3s ease-out;
 }
 
 .banner-content h1 {
   font-size: 3.5rem;
   margin-bottom: 20px;
+  /* Animasi Fade-in dari bawah */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSlideUp 1s forwards ease-out;
 }
 
 .banner-content p {
   font-size: 1.5rem;
+  /* Animasi Fade-in dari bawah dengan delay */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSlideUp 1s forwards ease-out;
+  animation-delay: 0.5s;
+}
+
+/* Keyframes untuk animasi fade-in dan slide-up */
+@keyframes fadeInSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Penyesuaian untuk tampilan mobile */

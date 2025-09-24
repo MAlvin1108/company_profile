@@ -55,8 +55,6 @@
   object-fit: contain;
 }
 
-/* --- */
-
 /* Animasi saat section terlihat */
 .keunggulan-produk h2,
 .keunggulan-container .banner-column,
@@ -98,8 +96,6 @@
   transition-delay: 0.5s;
 }
 
-/* --- */
-
 /* Modal Styling */
 .modal-overlay {
   position: fixed;
@@ -134,9 +130,8 @@
   z-index: 1001;
   color: var(--header-color);
 }
-
-.close-button i:hover {
-  color: var(--secondary-color);
+.close-botton a i {
+  color: rgba(0, 0, 0, 0.767);
 }
 
 .interactive-360-viewer {
@@ -151,26 +146,26 @@
   object-fit: contain;
 }
 
-/* Responsive untuk mobile */
 @media (max-width: 768px) {
   .keunggulan-container {
     grid-template-columns: 1fr;
   }
-
   .banner-column {
-    flex-direction: row;
+    flex-direction: column;
+    gap: 10px;
   }
-
+  .product-banner {
+    max-height: 200px;
+    object-fit: contain;
+  }
   .keunggulan-produk.is-visible .banner-column,
   .keunggulan-produk.is-visible .keunggulan-image-column {
     transform: translateX(0);
   }
-
   .keunggulan-container .banner-column,
   .keunggulan-container .keunggulan-image-column {
     transform: translateY(50px);
   }
-
   .keunggulan-produk.is-visible .keunggulan-image-column {
     transition-delay: 0.5s;
   }
