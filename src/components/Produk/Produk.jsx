@@ -153,7 +153,7 @@ const Produk = () => {
                 <p className="produk-price">{produk.price}</p>
                 <p className="produk-description">{produk.description}</p>
                 <a
-                  href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20motor%20listrik%20Anda."
+                  href="https://linktr.ee/Indomobilundaan"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="whatsapp-button"
