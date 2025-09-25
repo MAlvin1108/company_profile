@@ -99,11 +99,17 @@ const KeunggulanProduk = () => {
               ref={imageContainerRef}
               onMouseMove={handleMouseMove}
             >
-              <img
-                src={current360Images[current360Index]}
-                alt="360 View"
-                className="viewer-image"
-              />
+              <div className="viewer-image-container">
+                {current360Images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`360 View Frame ${index}`}
+                    className="viewer-image"
+                    style={{ opacity: index === current360Index ? 1 : 0 }}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

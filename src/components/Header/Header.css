@@ -1,4 +1,4 @@
-/* src/components/Header.css */
+/* src/components/Header/Header.css */
 header {
   background-color: var(--header-color);
   color: white;
@@ -6,11 +6,15 @@ header {
   position: sticky;
   top: 0;
   z-index: 999;
-
-  /* Animasi Fade-in dari atas */
+  /*AnimasiFade-indarisamping*/
   opacity: 0;
   transform: translateY(-50px);
   animation: headerFadeIn 1s forwards ease-out;
+  -webkit-animation: headerFadeIn 1s forwards ease-out;
+  -webkit-transform: translateY(-50px);
+  -moz-transform: translateY(-50px);
+  -ms-transform: translateY(-50px);
+  -o-transform: translateY(-50px);
 }
 
 .container-header {
@@ -24,6 +28,10 @@ header {
 .container-header img {
   width: 150px;
   height: auto;
+}
+
+.container-header nav {
+  display: flex;
 }
 
 .container-header nav ul {
@@ -42,43 +50,69 @@ header {
   transition: color 0.3s;
 }
 
-.container-header nav ul li a:hover {
-  color: var(--secondary-color);
+.menu-toggle {
+  display: none;
 }
 
-.container-header nav ul li a::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background-color: var(--secondary-color);
-  transition: width 0.3s ease-in-out;
-}
-
-.container-header nav ul li a:hover::after {
-  width: 100%;
-}
-
-/* Keyframes untuk animasi header */
 @keyframes headerFadeIn {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
 @media (max-width: 768px) {
   .container-header {
-    flex-direction: column;
-    text-align: center;
+    padding: 0 10px;
   }
+
+  .menu-toggle {
+    display: inline-block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+    line-height: 1;
+  }
+
+  /* Styling Navigasi Mobile */
+  .container-header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 998;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .container-header .nav-open {
+    display: block;
+    height: auto;
+  }
+
   .container-header nav ul {
-    margin-top: 15px;
     flex-direction: column;
-    gap: 10px;
-    justify-content: space-between;
+    padding: 10px 0;
+    gap: 0;
+    width: 100%;
+  }
+
+  .container-header nav ul li {
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .container-header nav ul li:last-child {
+    border-bottom: none;
+  }
+
+  .container-header nav ul li a {
+    display: block;
+    padding: 15px 24px;
+    width: 100%;
   }
 }
