@@ -2,7 +2,7 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import "./Lokasi.css";
+import "./lokasi.css";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const Lokasi = () => {

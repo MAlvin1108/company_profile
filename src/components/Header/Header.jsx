@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
       <div className="container-header">
-        <img src="./public/img/logo.png" alt="Indolocal Logo" />
+        <img src="/img/logo.png" alt="Indolocal Logo" />
         <nav>
           <ul>
             <li>
