@@ -1,12 +1,42 @@
-# React + Vite
+# 🛵 Dokumentasi Proyek: Indomobil eMotor Undaan (Company Profile)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deskripsi Proyek
 
-Currently, two official plugins are available:
+Ini adalah repositori untuk situs web resmi Indomobil eMotor cabang Undaan, Surabaya. Situs ini berfungsi sebagai profil perusahaan dan katalog produk digital, menampilkan solusi transportasi sepeda motor listrik terbesar di wilayah Surabaya dan sekitarnya.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Misi utama proyek ini adalah menyediakan platform yang informatif dan menarik untuk memamerkan model-model motor listrik unggulan, yaitu **Adora** dan **Tyrano**.
 
-## Expanding the ESLint configuration
+## Fitur Utama
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Situs web ini mencakup fitur-fitur utama berikut:
+
+* **Integrasi Peta Interaktif:** Menampilkan lokasi kantor cabang Indomobil Undaan di Surabaya menggunakan React Leaflet.
+* **Tampilan Produk Interaktif 360°:** Pengunjung dapat melihat model motor listrik Adora dan Tyrano dari berbagai sudut menggunakan fitur *interactive 360 viewer*.
+* **Daftar Produk Lengkap:** Menampilkan berbagai varian warna dan harga jual, seperti model Adora mulai dari Rp 26.350.000 dan Tyrano mulai dari Rp 27.500.000.
+* **Testimoni Pelanggan:** Bagian ulasan untuk membangun kepercayaan dengan menampilkan pengalaman pelanggan sebelumnya.
+* **Animasi Scroll Reveal:** Menggunakan *Intersection Observer Hook* khusus (`useIntersectionObserver.js`) untuk memicu animasi saat pengguna menggulir ke berbagai bagian halaman.
+
+## Teknologi yang Digunakan
+
+Proyek ini dibangun menggunakan *stack* teknologi modern berikut:
+
+* **Framework:** React v19.1.1
+* **Build Tool:** Vite
+* **Routing:** `react-router-dom` v7.8.2
+* **Mapping:** `leaflet` dan `react-leaflet` untuk menampilkan peta lokasi
+* **Styling:** CSS Murni dengan variabel CSS
+* **Ikon:** Feather Icons (dimuat via CDN)
+
+## Instalasi dan Setup Lokal
+
+Untuk menjalankan proyek ini di lingkungan lokal Anda, ikuti langkah-langkah berikut:
+
+### Prasyarat
+
+Pastikan Anda telah menginstal [Node.js](https://nodejs.org/) (versi yang direkomendasikan adalah `^20.19.0` atau yang lebih baru, sesuai konfigurasi `vite`).
+
+### 1. Kloning Repositori
+
+```bash
+git clone <URL_REPOSITORI_ANDA>
+cd malvin1108/company_profile
