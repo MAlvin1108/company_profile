@@ -10,11 +10,11 @@ header {
   opacity: 0;
   transform: translateY(-50px);
   animation: headerFadeIn 1s forwards ease-out;
-  -webkit-animation: headerFadeIn 1s forwards ease-out;
   -webkit-transform: translateY(-50px);
   -moz-transform: translateY(-50px);
   -ms-transform: translateY(-50px);
   -o-transform: translateY(-50px);
+  -webkit-animation: headerFadeIn 1s forwards ease-out;
 }
 
 .container-header {
@@ -50,6 +50,26 @@ header {
   transition: color 0.3s;
 }
 
+.container-header nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+.container-header nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; /* Awalnya tidak terlihat */
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease-in-out;
+}
+
+.container-header nav ul li a:hover::after {
+  width: 100%;
+}
+
 .menu-toggle {
   display: none;
 }
@@ -61,11 +81,13 @@ header {
   }
 }
 
+/* MEDIA QUERY: Tampilan Mobile/Tablet (max-width: 768px) */
 @media (max-width: 768px) {
   .container-header {
     padding: 0 10px;
   }
 
+  /* Tampilkan Tombol Hamburger */
   .menu-toggle {
     display: inline-block;
     background: none;
@@ -74,9 +96,9 @@ header {
     padding: 10px;
     z-index: 1000;
     line-height: 1;
+    color: white;
   }
 
-  /* Styling Navigasi Mobile */
   .container-header nav {
     display: none;
     position: absolute;
